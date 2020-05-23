@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, NavLink, Route } from "react-router-dom";
 
 const Home = () => {
   return <h1>Strona startowa</h1>;
@@ -11,6 +11,7 @@ class App extends Component {
   render() {
     return (
       <Router>
+        Nav
         <div>
           <header>
             <nav>
@@ -19,13 +20,27 @@ class App extends Component {
                 <li><a href="/news">Aktualności</a></li>
                 <li><a href="/contact">Kontakt</a></li> */}
                 <li>
-                  <Link to="/">Start</Link>
+                  <NavLink
+                    to="/"
+                    exact
+                    activeClassName="home_selected"
+                    activeStyle={{
+                      backgroundColor: "gray",
+                      letterSpacing: "6px",
+                    }}
+                  >
+                    Start
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="/news">Aktualności</Link>
+                  <NavLink to="/news" activeClassName="news_selected">
+                    Aktualności
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="/contact">Kontakt</Link>
+                  <NavLink to="/contact" activeClassName="contact_selected">
+                    Kontakt
+                  </NavLink>
                 </li>
               </ul>
             </nav>
